@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-/*
+
 var fs = require('fs');
 var csv = require('fast-csv');
 
@@ -33,7 +33,7 @@ router.get('/csv', function(req, res, next) {
     });
     //res.send(JSON.stringify( mydata));
 
-}); */
+}); 
 
 module.exports = router;
 
