@@ -9,12 +9,12 @@ export class CsvserveService {
 
   constructor(private _http:HttpClient) { }
 
-  /*getcsvdata(){
+  getcsvdata(){
     return this._http.get('http://127.0.0.1:3000/users/csv',{
       observe:'body',
       withCredentials:true,
       headers:new HttpHeaders().append('Content-Type','application/json')
     });
-  }*/
+  }
 
 }
