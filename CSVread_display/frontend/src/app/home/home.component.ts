@@ -12,35 +12,40 @@ export class HomeComponent implements OnInit {
 
   constructor(private _csv:CsvReadserviceService) { } 
 
-  ngOnInit() {
-    this.chart();
-  }
- country1:any;
+  country1:String="";
   country2:String;
   country3:String;
   data1:number;
   data2:number;
   data3:number;
-  chart(){
-    //var country1:String="";
- 
+
+  ngOnInit() {
 
     this._csv.getcsvdata()
       .subscribe(
         data=>{
           console.log(data);
           console.log(data[0][0]);
-          this.country1==data[0][0];
-          this.country2=data[0][1];
-          this.country3=data[0][2];
-          this.data1=data[1][0];
-          this.data2=data[1][1];
-          this.data3=data[2][2];
-          console.log(this.country1);
+          this.country1 = data[0][0];
+          this.country2 = data[0][1];
+          this.country3 = data[0][2];
+          this.data1 = data[1][0];
+          this.data2 = data[1][1];
+          this.data3 = data[1][2];
+          console.log(this.country3);
 
         },
         error=>console.error(error)
     );
+    
+    this.chart();
+  }
+ 
+  chart(){
+    //var country1:String="";
+ 
+
+    
 
     new Chart(document.getElementById("pie-chart"), {
       type: 'pie',
