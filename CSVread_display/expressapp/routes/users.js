@@ -22,14 +22,17 @@ router.get('/csv', function(req, res, next) {
         //for (var index = 0; index < data.length; index++) {
            // mydata.push(data[index]);
         //}
+        console.log(data);
         mydata.push(data);
-        console.log(mydata);
+        //console.log(mydata);
         
     })
     .on('end',function(data){
         console.log('Read Finished');
         console.log(mydata[0][2]);
+        
         res.send(JSON.stringify( mydata));
+        mydata=[];
     });
     //res.send(JSON.stringify( mydata));
 

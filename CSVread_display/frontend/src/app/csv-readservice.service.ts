@@ -5,9 +5,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CsvserveService {
+export class CsvReadserviceService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient) { } 
 
   getcsvdata(){
     return this._http.get('http://127.0.0.1:3000/users/csv',{
@@ -16,5 +16,4 @@ export class CsvserveService {
       headers:new HttpHeaders().append('Content-Type','application/json')
     });
   }
-
 }
