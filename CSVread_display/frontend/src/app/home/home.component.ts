@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private _csv:CsvReadserviceService) { } 
 
-  country1:String="";
+  country1:String;
   country2:String;
   country3:String;
   data1:number;
@@ -33,28 +33,25 @@ export class HomeComponent implements OnInit {
           this.data2 = data[1][1];
           this.data3 = data[1][2];
           console.log(this.country3);
+          this.chart();
 
         },
         error=>console.error(error)
     );
     
-    this.chart();
+    //this.chart();
   }
  
   chart(){
-    //var country1:String="";
- 
-
     
-
     new Chart(document.getElementById("pie-chart"), {
       type: 'pie',
       data: {
-        labels: [this.country1, this.country2, "Erope"],
+        labels: [this.country1, this.country2, this.country3],
         datasets: [{
           label: "Population (millions)",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2478,5267,734]
+          data: [this.data1,this.data2,this.data3]
         }]
       },
       options: {
